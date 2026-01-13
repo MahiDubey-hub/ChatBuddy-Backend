@@ -18,8 +18,7 @@ public class GeminiWebSocketHandler extends TextWebSocketHandler {
     @Value("${gemini.api.key}")
     private String apiKey;
 
-    private final String GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=";
-
+    private final String GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=";
 
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
@@ -44,7 +43,7 @@ public class GeminiWebSocketHandler extends TextWebSocketHandler {
         }
         catch(Exception e){
             System.out.println("API call failed" + e.getMessage());
-            return "{\"error\":\"API call failed\"}";
+            return "{\"error\":\"Facing some issue in fetching result. Try again after sometime!\"}";
         }
     }
 
