@@ -5,7 +5,7 @@ From eclipse-temurin:21-jdk
 WORKDIR /app
 
 #copy jar file inside container
-COPY target/Chatbot-0.0.1-SNAPSHOT.jar aiChatbot.jar
+COPY target/*.jar app.jar
 
 #expose port
 EXPOSE 8080
