@@ -95,3 +95,7 @@ GEMINI_API_KEY=your_api_key_here
 
 (Windows PowerShell)
 setx GEMINI_API_KEY "your_api_key_here"
+
+Deployed Project : 
+<img width="1885" height="1035" alt="Screenshot 2026-01-13 161427" src="https://github.com/user-attachments/assets/d0e67123-3e6d-4bf6-97c8-f2adc75358a5" />
+
