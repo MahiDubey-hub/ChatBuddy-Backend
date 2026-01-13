@@ -1,14 +1,11 @@
-#base image with jdk
-From eclipse-temurin:21-jdk
-
-#working dir inside container
+FROM maven:3.9.9-eclipse-temurin-21 AS build
 WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
 
-#copy jar file inside container
-COPY target/Chatbot-0.0.1-SNAPSHOT.jar app.jar
-
-#expose port
+FROM eclipse-temurin:21-jdk
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
-
-#command to run app.jar
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
